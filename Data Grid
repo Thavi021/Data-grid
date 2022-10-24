@@ -1,0 +1,10 @@
+string sqlconstr = "Data Source=.;Initial Catalog=Test;Integrated Security=True";
+string qu = "SELECT * FROM Test";
+SqlConnection cx = new SqlConnection(sqlconstr);
+SqlDataAdapter dt = new SqlDataAdapter(qu, cx);
+DataSet dase = new DataSet();
+cx.Open();
+dt.Fill(ds, "Test_table");
+cx.Close();
+dgvt.DataSource = dase;
+dgvt.DataMember = "Test_table";
